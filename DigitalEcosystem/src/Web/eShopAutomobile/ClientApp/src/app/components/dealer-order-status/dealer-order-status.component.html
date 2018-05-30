@@ -1,0 +1,156 @@
+<div class="page-container">
+    <!-- Page content -->
+    <div class="page-content">
+        <!-- Main sidebar -->
+        <div class="sidebar sidebar-main">
+            <div class="sidebar-content">
+                <!-- User menu -->
+                <div class="sidebar-user">
+                    <div class="category-content">
+                        <div class="media">
+                            <a href="#" class="media-left"><img src="/assets/images/placeholder.svg" class="img-circle img-sm" alt=""></a>
+                            <div class="media-body">
+                                <span class="media-heading text-semibold">{{userName}}</span>
+                            </div>
+                            <div class="media-right media-middle">
+                                <ul class="icons-list">
+                                    <li>
+                                        <a href="#"><i class="icon-cog3"></i></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /user menu -->
+                <!-- Main navigation -->
+                <div class="sidebar-category sidebar-category-visible">
+                    <div class="category-content no-padding">
+                        <ul class="navigation navigation-main navigation-accordion">
+                            <!-- Main -->
+                            <li class="navigation-header"><span>Main</span> <i class="icon-menu" title="Main pages"></i></li>
+                            <li><a href="/dealer"><i class="icon-home4"></i> <span>Dashboard</span></a></li>
+                            <li><a href="/dealer-orders"><i class="icon-home4"></i> <span>Order Management System</span></a></li>
+                            <li class="active"><a href="/dealer-orders-status"><i class="icon-home4"></i> <span>Track Order ID</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- /main navigation -->
+            </div>
+        </div>
+        <!-- /main sidebar -->
+        <!-- Main content -->
+        <div class="content-wrapper">
+            <!-- Content area -->
+            <div class="content">
+                <div class="panel panel-flat">
+                    <div class="panel-body">
+                        <div class="content-group">
+                            <div class="page-header" style="border: 1px solid #c0c0c0;">
+                                <div class="page-header-content">
+                                    <div class="page-title">
+                                        <div class="row">
+                                            <form class="form-inline">
+                                                <div class="form-group mx-sm-3 mb-2">
+                                                    <label for="inputPassword2" class="sr-only">Order Id</label>
+                                                    <input type="text" class="form-control" id="inputPassword2" placeholder="Order Id">
+                                                </div>
+                                                <button type="submit" class="btn btn-ey-primary mb-2">Submit</button>
+                                            </form>
+                                        </div>
+                                        <div style="height:30px">
+
+                                        </div>
+                                        <div class="row">
+                                            <h3>Order Status</h3>
+                                        </div>
+                                        <div style="height:30px">
+
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <div class="stepwizard pull-right">
+                                                    <div class="stepwizard-row setup-panel">
+                                                        <div class="order-processing">
+                                                            <style>
+                                                                p {
+                                                                    color: black !important;
+                                                                }
+
+                                                                .stepwizard-row:before {
+                                                                    top: 6px;
+                                                                    bottom: 0;
+                                                                    position: absolute;
+                                                                    content: " ";
+                                                                    width: 76%;
+                                                                    margin: 0 12%;
+                                                                    height: 9px;
+                                                                    background-color: #515969;
+                                                                    z-index: 0;
+                                                                }
+
+                                                                .btnStatus {
+                                                                    border: 1px solid #cecbcb;
+                                                                    padding: 12px;
+                                                                    margin-top: 30px;
+                                                                    color: black;
+                                                                    font-weight: bold;
+                                                                    cursor: pointer;
+                                                                }
+                                                            </style>
+                                                            <div class="stepwizard-step col-xs-3">
+                                                                <span class="btn bg-ey-yellow btn-circle">&nbsp;</span>
+                                                                <p><strong>Order Processing</strong></p>
+                                                            </div>
+                                                            <div class="stepwizard-step col-xs-3">
+                                                                <span class="btn bg-ey-grey-tint-3 btn-circle" style="border-color: #515969; background-color: #515969;">&nbsp;</span>
+                                                                <p>Assembly Unit</p>
+                                                            </div>
+                                                            <div class="stepwizard-step col-xs-3">
+                                                                <span class="btn bg-ey-grey-tint-3 btn-circle" style="border-color: #515969; background-color: #515969;">&nbsp;</span>
+                                                                <p>Shipment Ready</p>
+                                                            </div>
+                                                            <div class="stepwizard-step col-xs-3">
+                                                                <span class="btn bg-ey-grey-tint-3 btn-circle" style="border-color: #515969; background-color: #515969;">&nbsp;</span>
+                                                                <p>Shipped</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xs-3">
+                                                            <div class="btnStatus">Vehicle Order <img style="width:20px;float:right" src="/assets/images/greentick.png" /></div>
+                                                            <div class="btnStatus">Vehicle Forecasting <img style="width:20px;float:right" src="/assets/images/greentick.png" /></div>
+                                                            <div class="btnStatus">VPC Planning</div>
+                                                        </div>
+                                                        <div class="col-xs-3">
+                                                            <div class="btnStatus">VPC Operations</div>
+                                                            <div class="btnStatus">Vehicle Logistics</div>
+                                                            <div class="btnStatus">Vehicle Quality Assurance</div>
+                                                            <div class="btnStatus">Vehicle Damage Management</div>
+                                                            <div class="btnStatus">
+                                                                Vehicle Pricing Engine
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xs-3">
+                                                            <div class="btnStatus">Automated Vehicle Allocation</div>
+                                                            <div class="btnStatus">Vehicle Configuration</div>
+                                                            <div class="btnStatus">Vehicle Inventory <i class="fas fa-check"></i></div>
+                                                        </div>
+                                                        <div class="col-xs-3">
+                                                            <div class="btnStatus">Carrier Management</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /content area -->
+        </div>
+        <!-- /main content -->
+    </div>
+</div>

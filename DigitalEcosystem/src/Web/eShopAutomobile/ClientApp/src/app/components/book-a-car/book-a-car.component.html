@@ -1,0 +1,321 @@
+<div class="page-container">
+    <!-- Page content -->
+    <div class="page-content">
+        <!-- Main sidebar -->
+        <div class="sidebar sidebar-main">
+            <div class="sidebar-content">
+                <!-- User menu -->
+                <div class="sidebar-user">
+                    <div class="category-content">
+                        <div class="media">
+                            <a href="#" class="media-left"><img src="../../assets/images/placeholder.svg" class="img-circle img-sm" alt=""></a>
+                            <div class="media-body">
+                                <span class="media-heading text-semibold">Sujith Vijayan</span>
+                            </div>
+                            <div class="media-right media-middle">
+                                <ul class="icons-list">
+                                    <li>
+                                        <a href="#"><i class="icon-cog3"></i></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /user menu -->
+                <!-- Main navigation -->
+                <div class="sidebar-category sidebar-category-visible">
+                    <div class="category-content no-padding">
+                        <ul class="navigation navigation-main navigation-accordion">
+                            <!-- Main -->
+                            <li class="navigation-header"><span>Main</span> <i class="icon-menu" title="Main pages"></i></li>
+                            <li class="active"><a href="index.html"><i class="icon-home4"></i> <span>Dashboard</span></a></li>
+                            <li><a href="index.html"><i class="icon-home4"></i> <span>Find a Dealer</span></a></li>
+                            <li><a href="index.html"><i class="icon-home4"></i> <span>Test Drive</span></a></li>
+                            <li><a href="index.html"><i class="icon-home4"></i> <span>Price List</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- /main navigation -->
+            </div>
+        </div>
+        <!-- /main sidebar -->
+        <!-- Main content -->
+        <div class="content-wrapper">
+            <div class="content">
+                <div class="panel panel-flat">
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="form-group col-lg-3">
+                                <label class="control-label">Select Make</label>
+                                <select class="select" id="make">
+                                    <option *ngFor="let m of makes">{{m}}</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-lg-4">
+                                <label class="control-label">Select Car</label>
+                                <select [(ngModel)]="selectedModel" (ngModelChange)="showCar()" class="select" id="model">
+                                    <option *ngFor="let m of models">{{m}}</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-lg-3">
+                                <label class="control-label">Select Variations</label>
+                                <select [(ngModel)]="selectedVariant" (ngModelChange)="showCar()" class="select" id="varient">
+                                    <option *ngFor="let v of variants">{{v}}</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-lg-2" style="display:none">
+                                <button class="btn btn-ey-success btn-labeled pull-right" type="button"><b><i class="icon-menu7"></i></b> Submit</button>
+                            </div>
+                        </div>
+                        <div class="hidden-lg mb-20"></div>
+                        <div class="content-group">
+                            <div class="page-header page-header-inverse" style="border: 1px solid #c0c0c0;">
+                                <div class="page-header-content">
+                                    <div class="page-title">
+                                        <div class="row">
+                                            <div class="col-sm-3">
+                                                <h5>
+                                                    <i class="icon-arrow-left52 position-left"></i>
+                                                    <span class="text-semibold">You Selected</span> -{{selectedModel}} {{selectedVariant}}
+                                                    <small class="display-block">Black Color</small>
+                                                </h5>
+                                            </div>
+                                        </div>
+                                        <a class="heading-elements-toggle"><i class="icon-more"></i></a>
+                                    </div>
+                                    <div class="heading-elements">
+                                        <div class="heading-btn-group">
+                                            @*<a href="#" class="btn bg-ey-primary heading-btn"><span>View On Road Price</span></a>*@
+                                            <a id="specs" href="#" class="btn bg-ey-primary heading-btn" data-toggle="modal" data-load-url="\Home\corolla_le_specs" data-target="#div-specs"><span>View All LS Specifications</span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-4 img-responsive"><img [src]="displayCarImg" /></div>
+                                <div class="col-lg-8">
+                                    <div class="nm-deviceInfo">
+                                        <div class="hidden-xs">
+                                            <h1 class="mobHeading inline-block" itemprop="name"></h1>
+                                        </div>
+                                        <div class="clearfix hidden-xs">
+                                            <input id="input-21e" value="0" type="text" class="rating" data-min=0 data-max=5 data-step=0.5 data-size="xs" title="" displayOnly>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                        <div class="pt-20 dpt-0">
+
+                                            <div class="clearfix"></div>
+                                            <div class="nm-emiWrap ">
+                                                <div class="row">
+                                                    <div class="col-lg-6 fnt-14  nm-brdRyt hidden-xs mt-20">
+                                                        <form class="form-horizontal" action="#">
+                                                            <fieldset>
+                                                                <div class="form-group">
+                                                                    <b class="control-label col-lg-4">Price</b>
+                                                                    <div class="col-lg-8">
+                                                                        <div class="form-control-static"> {{displayCar.price}}</div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <b class="control-label col-lg-4">Mileage</b>
+                                                                    <div class="col-lg-8">
+                                                                        <div class="form-control-static">{{displayCar.mileage}}</div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <b class="control-label col-lg-4">Engine</b>
+                                                                    <div class="col-lg-8">
+                                                                        <div class="form-control-static">{{displayCar.engine}}</div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <b class="control-label col-lg-4">Transmission</b>
+                                                                    <div class="col-lg-8">
+                                                                        <div class="form-control-static">{{displayCar.transmission}}</div>
+                                                                    </div>
+                                                                </div>
+                                                            </fieldset>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6 fnt-16 hidden-xs no-padding" style="display:none">
+                                                    <div class="clearfix"></div>
+                                                    <div class="nm-negM">
+                                                        <span class="zw-cmn-price fnt-16 b inline-block"> Rs. 380,893 </span><span class="fnt-14"> per month @@ 10.5%</span>
+                                                        <br />
+                                                        <!--<div class="clearfix"></div>-->
+                                                        <a class="zw-cmn-blueColor" href="#"> View May Offers</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                        <div class="row mt-20" style="display:none">
+                                            <div class="form-group col-lg-3">
+                                                <label class="control-label">Select Accessories</label>
+                                                <select class="select">
+                                                    <option value="Variant 1">Tyre</option>
+                                                    <option value="Variant 2">Mirror</option>
+                                                    <option value="Variant 3">Seat</option>
+                                                    <option value="Variant 4">Gear Box</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br />
+                            <button class="btn btn-ey-success pull-right" type="button" href="#summary" data-toggle="modal">Checkout</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /content area -->
+        </div>
+        <!-- /main content -->
+    </div>
+    <!-- /content area -->
+</div>
+
+<!-- /page container -->
+<div id="summary" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-ey-primary">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h6 class="modal-title">Submit Order: {{selectedModel}} {{selectedVariant}}</h6>
+            </div>
+            <div class="modal-body">
+                <h5 class="text-semibold">Car Specifications</h5>
+                <div class="row">
+                    <div class="col-lg-12 fnt-14  nm-brdRyt hidden-xs mt-20">
+                        <form class="form-horizontal" action="#">
+                            <fieldset>
+                                <div class="form-group">
+                                    <b class="control-label col-lg-4">Price</b>
+                                    <div class="col-lg-8">
+                                        <div class="form-control-static"> {{displayCar.price}}</div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <b class="control-label col-lg-4">Mileage</b>
+                                    <div class="col-lg-8">
+                                        <div class="form-control-static">{{displayCar.mileage}}</div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <b class="control-label col-lg-4">Engine</b>
+                                    <div class="col-lg-8">
+                                        <div class="form-control-static">{{displayCar.engine}}</div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <b class="control-label col-lg-4">Transmission</b>
+                                    <div class="col-lg-8">
+                                        <div class="form-control-static">{{displayCar.transmission}}</div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+                <hr>
+                <h5 class="text-semibold">Accessories</h5>
+                <div class="row">
+                    <div class="col-lg-12 mt-10">
+                        <ul class="accessories-selection">
+                            <li class="accessories-choice"><span class="accessories-choice-remove">×</span>Tyre</li>
+                            <li class="accessories-choice"><span class="accessories-choice-remove">×</span>Mirror</li>
+                            <li class="accessories-choice"><span class="accessories-choice-remove">×</span>Seat</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-ey-success" id="sweet_success" data-dismiss="modal">Submit Order</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="div-specs" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-ey-primary">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h6 class="modal-title">Submit Order: Lexus LS</h6>
+            </div>
+            <div class="modal-body">
+                <h5 class="text-semibold">Car Specifications</h5>
+                <div class="row">
+                    <div class="col-lg-12 fnt-14  nm-brdRyt hidden-xs mt-20">
+                        <form class="form-horizontal" action="#">
+                            <fieldset>
+                                <div class="form-group">
+                                    <b class="control-label col-lg-4">Fuel Type</b>
+                                    <div class="col-lg-8">
+                                        <div class="form-control-static">Petrol</div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <b class="control-label col-lg-4">Mileage</b>
+                                    <div class="col-lg-8">
+                                        <div class="form-control-static">15 Kmpl</div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <b class="control-label col-lg-4">Engine</b>
+                                    <div class="col-lg-8">
+                                        <div class="form-control-static">3456 CC</div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <b class="control-label col-lg-4">Transmission</b>
+                                    <div class="col-lg-8">
+                                        <div class="form-control-static">Automatic</div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+                <hr>
+                <h5 class="text-semibold">Accessories</h5>
+                <div class="row">
+                    <div class="col-lg-12 mt-10">
+                        <ul class="accessories-selection">
+                            <li class="accessories-choice"><span class="accessories-choice-remove">×</span>Tyre</li>
+                            <li class="accessories-choice"><span class="accessories-choice-remove">×</span>Mirror</li>
+                            <li class="accessories-choice"><span class="accessories-choice-remove">×</span>Seat</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-ey-success" id="sweet_success" data-dismiss="modal">Submit Order</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(".assembly-unit, .shipment-ready, .shipped").hide();
+    $(".order-processing").show();
+</script>
+<script>
+    // Success alert
+    $('#sweet_success').on('click', function () {
+        swal({
+            title: "Congratulations!",
+            text: "You have purchased a Lexus!",
+            confirmButtonColor: "#2c973e",
+            type: "success"
+        }, function () {
+            window.location = "order-status.html";
+        });
+    });
+    $('#specs').on('click', function (e) {
+        e.preventDefault();
+        $('#div-specs').modal('show').find('.modal-body').load($(this).attr('href'));
+    });
+</script>
+
